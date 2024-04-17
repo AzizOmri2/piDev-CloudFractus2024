@@ -1,0 +1,65 @@
+<button class="btn btn-success" (click)="ouvrirPopup()">Ajouter</button>
+
+
+
+<div class="card-container">
+    <div class="card" *ngFor="let don of donnees">
+      <div class="card-header">
+        Cours
+      </div>
+      <div class="card-body">
+        <p>Date: {{ don.date | date:'yyyy-MM-dd' }}</p>
+        <p>Description: {{ don.description }}</p>
+        <!-- Affichez les autres champs de la même manière -->
+      </div>
+    </div>
+  </div>
+  
+
+<div #popupModal class="modal">
+    <div class="modal-content">
+        <span class="close" (click)="fermerPopup()">&times;</span>
+
+    <div class="card-body">
+      <form [formGroup]="validateForm" (ngSubmit)="fermerPopup()">
+        <div class="form-group">
+          <label for="date" >Date:</label>
+          <input type="date" formControlName="date" id="date" class="form-control">
+        </div>
+  
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea formControlName="description" id="description" class="form-control"></textarea>
+        </div>
+  
+        <div class="form-group">
+          <label for="categorie">Categorie:</label>
+          <input type="text" formControlName="categorie" id="categorie" class="form-control">
+        </div>
+  
+        <div class="form-group">
+          <label for="duree">Duree:</label>
+          <input type="text" formControlName="duree" id="duree" class="form-control">
+        </div>
+  
+        <div class="form-group">
+          <label for="prix">Prix:</label>
+          <input type="text" formControlName="prix" id="prix" class="form-control">
+        </div>
+  
+       
+  
+        <div class="form-group">
+          <label for="nb_participant">Nombre de participants:</label>
+          <input type="number" formControlName="nb_participant" id="nb_participant" class="form-control">
+        </div>
+  
+        <button type="submit" (click)="postCour()" class="btn btn-primary">Ajouter</button>
+      </form>
+    </div>
+  </div>
+  
+</div>
+
+
+
