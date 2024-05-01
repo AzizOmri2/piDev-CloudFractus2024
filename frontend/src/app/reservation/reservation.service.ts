@@ -11,8 +11,8 @@ export class ReservationService {
 
   constructor(private http: HttpClient) { }
 
-  postReservation(reservation : any): Observable<any> {
-    return this.http.post(BASIC_URL + "/reservation/add", reservation);
+  postReservation(reservation : any, idSalle: number): Observable<any> {
+    return this.http.post(BASIC_URL + "/reservation/add/"+idSalle, reservation);
   }
 
   updateReservation(id: number,reservation : any): Observable<any> {

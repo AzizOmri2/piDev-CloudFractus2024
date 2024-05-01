@@ -1,5 +1,6 @@
 package tn.esprit.pidevcloud.services;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.pidevcloud.entities.Bloc;
@@ -28,11 +29,6 @@ public class ServiceSalle implements SalleCrud{
     }
 
     @Override
-    public Salle ajouterSalle(Salle s) {
-        return sr.save(s);
-    }
-
-    @Override
     public void supprimerSalle(Long idSalle) {
         sr.deleteById(idSalle);
     }
@@ -43,10 +39,11 @@ public class ServiceSalle implements SalleCrud{
     }
 
     @Override
-    public void affecterSalleAuBloc(long idSalle, long idBloc) {
-        Salle salle = sr.findById(idSalle).get();
-        Bloc bloc = br.findById(idBloc).get();
+    @Transactional
+    public void ajouterSalleBloc(Salle salle, Bloc bloc) {
         salle.setBloc(bloc);
         sr.save(salle);
     }
+
+
 }

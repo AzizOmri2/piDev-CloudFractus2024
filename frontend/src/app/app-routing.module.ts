@@ -10,19 +10,28 @@ import { AfficherBlocComponent } from './bloc/afficher-bloc/afficher-bloc.compon
 import { AjouterReservationComponent } from './reservation/ajouter-reservation/ajouter-reservation.component';
 import { AfficherReservationComponent } from './reservation/afficher-reservation/afficher-reservation.component';
 import { ModifierReservationComponent } from './reservation/modifier-reservation/modifier-reservation.component';
+import { AfficherSalleFrontComponent } from './salle/afficher-salle-front/afficher-salle-front.component';
+import { AjouterReservationFrontComponent } from './reservation/ajouter-reservation-front/ajouter-reservation-front.component';
+import { MerciComponent } from './front/merci/merci.component';
+import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: AdminComponent },
   //{ path: '', redirectTo: 'afficherSalle', pathMatch: 'full' },
   { path: 'ajouterSalle', component: AjouterSalleComponent },
   { path: 'afficherSalle', component: AfficherSalleComponent },
+  { path: 'afficherSalleFront', component: AfficherSalleFrontComponent },
   { path: 'modifierSalle/:id', component: ModifierSalleComponent },
   { path: 'ajouterBloc', component: AjouterBlocComponent },
   { path: 'afficherBloc', component: AfficherBlocComponent },
   { path: 'modifierBloc/:id', component: ModifierBlocComponent },
   { path: 'ajouterReservation/:id', component: AjouterReservationComponent },
+  { path: 'ajouterReservationFront/:id', component: AjouterReservationFrontComponent },
+  { path: 'merci', component: MerciComponent },
   { path: 'afficherReservation', component: AfficherReservationComponent },
   { path: 'modifierReservation/:id', component: ModifierReservationComponent },
+  { path: 'map', component: MapComponent },
+  
 ];
 
 

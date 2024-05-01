@@ -15,6 +15,11 @@ import { ModifierBlocComponent } from './bloc/modifier-bloc/modifier-bloc.compon
 import { AjouterReservationComponent } from './reservation/ajouter-reservation/ajouter-reservation.component';
 import { AfficherReservationComponent } from './reservation/afficher-reservation/afficher-reservation.component';
 import { ModifierReservationComponent } from './reservation/modifier-reservation/modifier-reservation.component';
+import { AfficherSalleFrontComponent } from './salle/afficher-salle-front/afficher-salle-front.component';
+import { FrontComponent } from './front/front.component';
+import { AjouterReservationFrontComponent } from './reservation/ajouter-reservation-front/ajouter-reservation-front.component';
+import { MerciComponent } from './front/merci/merci.component';
+import { MapComponent } from './map/map.component';
 
 
 @NgModule({
@@ -30,6 +35,11 @@ import { ModifierReservationComponent } from './reservation/modifier-reservation
     AjouterReservationComponent,
     AfficherReservationComponent,
     ModifierReservationComponent,
+    AfficherSalleFrontComponent,
+    FrontComponent,
+    AjouterReservationFrontComponent,
+    MerciComponent,
+    MapComponent,
 
   ],
   imports: [

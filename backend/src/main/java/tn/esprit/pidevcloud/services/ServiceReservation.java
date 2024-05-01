@@ -3,9 +3,13 @@ package tn.esprit.pidevcloud.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.pidevcloud.entities.Reservation;
+import tn.esprit.pidevcloud.entities.Salle;
 import tn.esprit.pidevcloud.repository.ReservationRepository;
+import tn.esprit.pidevcloud.repository.SalleRepository;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Service
@@ -13,6 +17,7 @@ import java.util.List;
 public class ServiceReservation implements ReservationCrud{
 
     ReservationRepository rr;
+    SalleRepository sr;
 
     @Override
     public List<Reservation> afficherReservation() {
@@ -25,7 +30,16 @@ public class ServiceReservation implements ReservationCrud{
     }
 
     @Override
-    public Reservation ajouterReservation(Reservation r) {
+    public Reservation ajouterReservation(Reservation r, Long idSalle) {
+        Set<Salle> salleSet = new HashSet<>();
+        Salle s = sr.findById(idSalle).get();
+        if(r.getSalles() == null){
+            salleSet.add(s);
+            r.setSalles(salleSet);
+        }else{
+            r.getSalles().add(s);
+        }
+        s.setDisponibilite("Réservée");
         return rr.save(r);
     }
 
@@ -38,4 +52,6 @@ public class ServiceReservation implements ReservationCrud{
     public Reservation modifierReservation(Reservation r) {
         return rr.save(r);
     }
+
+
 }

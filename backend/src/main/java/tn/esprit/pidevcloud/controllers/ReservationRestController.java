@@ -27,10 +27,9 @@ public class ReservationRestController {
         return reservation;
     }
 
-    @PostMapping("/add")
-    public Reservation addReservation(@RequestBody Reservation r){
-        Reservation reservation = serviceReservation.ajouterReservation(r);
-        return reservation;
+    @PostMapping("/add/{idSalle}")
+    public Reservation addReservation(@RequestBody Reservation r,@PathVariable("idSalle") Long idSalle){
+        return serviceReservation.ajouterReservation(r,idSalle);
     }
 
     @DeleteMapping("/delete/{id}")

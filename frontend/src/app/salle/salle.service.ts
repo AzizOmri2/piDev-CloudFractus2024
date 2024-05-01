@@ -11,13 +11,13 @@ const BASIC_URL = ["http://localhost:8089"]
 export class SalleService {
 
   constructor(private http: HttpClient) { }
-
-  postSalle(salle : any): Observable<any> {
-    return this.http.post(BASIC_URL + "/salle/add", salle);
+  
+  addSalle(id: number, salle : any): Observable<any> {
+    return this.http.post(BASIC_URL + "/salle/ajouterSalleBloc/"+id,salle);
   }
 
-  updateSalle(id: number,salle : any): Observable<any> {
-    return this.http.put(BASIC_URL + "/salle/update/"+id, salle);
+  updateSalle(id: number,idBloc:number,salle : any): Observable<any> {
+    return this.http.put(BASIC_URL + "/salle/update/"+id+"/"+idBloc, salle);
   }
 
   afficherSalle(): Observable<any>{

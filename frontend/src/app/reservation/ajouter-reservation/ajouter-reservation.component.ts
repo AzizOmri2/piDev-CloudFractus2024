@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationService } from '../reservation.service';
 
 
@@ -11,9 +11,11 @@ import { ReservationService } from '../reservation.service';
 })
 export class AjouterReservationComponent {
 
+  id: number = this.activatedRoute.snapshot.params["id"];
   postReservationForm!: FormGroup;
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private reservationService: ReservationService, 
     private fb: FormBuilder,
     private router: Router){}
@@ -28,7 +30,7 @@ export class AjouterReservationComponent {
 
   postReservation(){
     console.log(this.postReservationForm.value);
-    this.reservationService.postReservation(this.postReservationForm.value).subscribe((res)=>{
+    this.reservationService.postReservation(this.postReservationForm.value,this.id).subscribe((res)=>{
       console.log(res);
       this.router.navigateByUrl("/afficherReservation");
     })
