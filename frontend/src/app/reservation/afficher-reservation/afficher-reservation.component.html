@@ -6,6 +6,7 @@
                 <th> Date </th>
                 <th> Raison </th>
                 <th> Nombre des Participants </th>
+                <th> Salle </th>
                 <th>    </th>
             </tr>
         </thead>
@@ -14,6 +15,7 @@
                 <td> {{ reservation.date | date:'dd-MM-yyyy' }} </td>
                 <td> {{ reservation.raison }} </td>
                 <td> {{ reservation.nbParticipant }} </td>
+                <td> {{ reservation.salle?.nom }} </td>
                 <td>
                     <a routerLink="/modifierReservation/{{reservation.id}}"><button class="btn btn-outline-success btn-sm">Modifier</button></a>
                     &nbsp;

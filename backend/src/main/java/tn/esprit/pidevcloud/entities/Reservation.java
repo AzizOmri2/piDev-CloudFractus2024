@@ -24,8 +24,7 @@ public class Reservation implements Serializable {
     private String raison;
     private int nbParticipant;
 
-    @JsonIgnore
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Salle> salles;
+    @ManyToOne
+    Salle salle;
 
 }

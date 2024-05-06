@@ -32,9 +32,8 @@ public class Salle implements Serializable {
     @ManyToOne
     Bloc bloc;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "salles", cascade = CascadeType.ALL)
-    private Set<Reservation> reservations;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="salle")
+    private Set<Reservation> Reservations;
 
 
 }

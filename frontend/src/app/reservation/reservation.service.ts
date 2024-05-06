@@ -30,4 +30,8 @@ export class ReservationService {
   supprimerReservation(id: number): Observable<any>{
     return this.http.delete(BASIC_URL+"/reservation/delete/"+id);
   }
+
+  downloadQrCode(idSalle:number): Observable<Blob> {
+    return this.http.get(BASIC_URL+'/reservation/download/'+idSalle, { responseType: 'blob' });
+  }
 }

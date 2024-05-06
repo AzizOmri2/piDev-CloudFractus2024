@@ -28,10 +28,21 @@ export class AjouterReservationComponent {
     })
   }
 
+  downloadQrCode(idSalle:number) {
+    this.reservationService.downloadQrCode(idSalle).subscribe((blob: Blob) => {
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = 'qrCodeSalle'+idSalle+'.png';
+      link.click();
+      console.log("Downloaded !")
+    });
+  }
+
   postReservation(){
     console.log(this.postReservationForm.value);
     this.reservationService.postReservation(this.postReservationForm.value,this.id).subscribe((res)=>{
       console.log(res);
+      this.downloadQrCode(res.salle.id);
       this.router.navigateByUrl("/afficherReservation");
     })
   }
