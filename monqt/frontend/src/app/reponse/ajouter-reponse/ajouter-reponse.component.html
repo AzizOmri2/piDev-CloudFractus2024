@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="form-container">
+        <h2 class="form-title">Ajouter une réponse à une réclamation</h2>
+        <form [formGroup]="addReponseForm" (ngSubmit)="addReponse()">
+            <div class="form-group">
+                <label for="idRec">ID Réclamation</label>
+                <input type="text" id="idRec" name="idRec" required formControlName="idRec">
+            </div>
+            <div class="form-group">
+                <label for="contenu">Contenu</label>
+                <input type="text" id="contenu" name="contenu" required formControlName="contenu">
+            </div>
+            <!-- Ajoutez d'autres champs pour les détails de la réponse selon vos besoins -->
+            <button type="submit">Ajouter réponse</button>
+        </form>
+    </div>
+</div>

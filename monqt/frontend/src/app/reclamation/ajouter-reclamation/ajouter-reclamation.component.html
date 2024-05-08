@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="form-container">
+        <h2 class="form-title">Post new Reclamation    
+            <form [formGroup]="addReclamationForm">
+                <div class="form-group">
+                    <label for="contenu">contenu</label>
+                    <input type="text" id="contenu" name="contenu" required formControlName="contenu">
+                </div>
+
+                <div class="form-group">
+                    <label for="mail">mail</label>
+                    <input type="mail" id="mail" name="mail" required formControlName="mail">
+                </div>
+
+                <div class="form-group">
+                    <label for="objet">objet</label>
+                    <input type="text" id="objet" name="objet" required required formControlName="objet">
+                </div>
+
+                <div class="form-group">
+                    <label for="proprietaire">proprietaire</label>
+                    <input type="text" id="proprietaire" name="proprietaire" required required formControlName="proprietaire">
+                </div>
+
+                <div class="form-group">
+                    <label for="titre">titre</label>
+                    <input type="text" id="titre" name="titre" required required formControlName="titre">
+                </div>
+                <button type="submit" (click)="addReclamation()">Post</button>
+            </form>
+    
+        </h2>
+    </div>
+</div>

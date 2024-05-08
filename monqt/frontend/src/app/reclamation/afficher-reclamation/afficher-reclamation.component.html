@@ -1,0 +1,27 @@
+<button class="btn-new" routerLink="/reclamation">post new reclamation</button>
+<table>
+    <thead>
+        <tr>
+            <th>id_reclamation</th>
+            <th>contenu</th>
+            <th>mail</th>
+            <th>objet</th>
+            <th>proprietaire</th>
+            <th>titre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let reclamation of Reclamations">
+            <td>{{reclamation.id_reclamation}}</td>
+            <td>{{reclamation.contenu}}</td>
+            <td>{{reclamation.mail}}</td>
+            <td>{{reclamation.objet}}</td>
+            <td>{{reclamation.titre}}</td>
+            <td>
+                <button class="btn-update" routerLink="/Reclamation/{{Reclamations.id_reclamation}}">Update</button>
+                <button class="btn-delete" (click)="deleteReclamation(reclamation.id_reclamation)">delete</button>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
